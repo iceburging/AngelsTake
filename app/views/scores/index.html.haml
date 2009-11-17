@@ -1,0 +1,13 @@
+- title "Scores"
+
+%table
+  %tr
+    %th Value
+  - for score in @scores
+    %tr
+      %td= h score.value
+      %td= link_to 'Show', score
+      %td= link_to 'Edit', edit_score_path(score)
+      %td= link_to 'Destroy', score, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Score", new_score_path

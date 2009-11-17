@@ -1,0 +1,12 @@
+- title "Score"
+
+%p
+  %strong Value:
+  =h @score.value
+
+%p
+  = link_to "Edit", edit_score_path(@score)
+  |
+  = link_to "Destroy", @score, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", scores_path

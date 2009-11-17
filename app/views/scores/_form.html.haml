@@ -1,0 +1,8 @@
+- form_for @score do |f|
+  = f.error_messages
+  %p
+    = f.label :value
+    %br
+    = f.text_field :value
+  %p
+    = f.submit "Submit"

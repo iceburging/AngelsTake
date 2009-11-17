@@ -1,0 +1,13 @@
+- title "Expressions"
+
+%table
+  %tr
+    %th Name
+  - for expression in @expressions
+    %tr
+      %td= h expression.name
+      %td= link_to 'Show', expression
+      %td= link_to 'Edit', edit_expression_path(expression)
+      %td= link_to 'Destroy', expression, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Expression", new_expression_path

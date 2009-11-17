@@ -1,0 +1,17 @@
+- form_for @user do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :hashword
+    %br
+    = f.text_field :hashword
+  %p
+    = f.label :salt
+    %br
+    = f.text_field :salt
+  %p
+    = f.submit "Submit"
+

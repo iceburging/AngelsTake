@@ -1,0 +1,13 @@
+- title "Distilleries"
+
+%table
+  %tr
+    %th Name
+  - for distillery in @distilleries
+    %tr
+      %td= h distillery.name
+      %td= link_to 'Show', distillery
+      %td= link_to 'Edit', edit_distillery_path(distillery)
+      %td= link_to 'Destroy', distillery, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Distillery", new_distillery_path

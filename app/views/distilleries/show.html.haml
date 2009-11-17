@@ -1,0 +1,12 @@
+- title "Distillery"
+
+%p
+  %strong Name:
+  =h @distillery.name
+
+%p
+  = link_to "Edit", edit_distillery_path(@distillery)
+  |
+  = link_to "Destroy", @distillery, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", distilleries_path

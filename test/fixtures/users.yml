@@ -1,0 +1,10 @@
+one:
+  name: MyString
+  hashword: MyString
+  salt: MyString
+
+two:
+  name: MyString
+  hashword: MyString
+  salt: MyString
+

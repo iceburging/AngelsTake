@@ -1,0 +1,18 @@
+- title "Users"
+
+%table
+  %tr
+    %th Name
+    %th Hashword
+    %th Salt
+  - for user in @users
+    %tr
+      %td= h user.name
+      %td= h user.hashword
+      %td= h user.salt
+      %td= link_to 'Show', user
+      %td= link_to 'Edit', edit_user_path(user)
+      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New User", new_user_path
+

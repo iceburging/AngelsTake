@@ -1,0 +1,12 @@
+- title "Expression"
+
+%p
+  %strong Name:
+  =h @expression.name
+
+%p
+  = link_to "Edit", edit_expression_path(@expression)
+  |
+  = link_to "Destroy", @expression, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", expressions_path
