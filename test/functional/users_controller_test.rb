@@ -28,7 +28,7 @@ class UsersControllerTest < ActionController::TestCase
   context "on POST to :create" do
     context "with vaild attributes" do
       setup do
-        post :create, Factory.attributes_for(:user)
+        post :create, :user => Factory.attributes_for(:user)
       end
       should_assign_to :user
       should_redirect_to("the user details page") {user_path(assigns(:user))}
@@ -38,7 +38,7 @@ class UsersControllerTest < ActionController::TestCase
     context "with invaild attributes" do
       setup do
         User.any_instance.stubs(:save).returns(false)
-        post :create, Factory.attributes_for(:user)
+        post :create, :user => Factory.attributes_for(:user)
       end
       should_assign_to :user
       should_respond_with :success

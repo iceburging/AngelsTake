@@ -28,7 +28,7 @@ class DistilleriesControllerTest < ActionController::TestCase
   context "on POST to :create" do
     context "with vaild attributes" do
       setup do
-        post :create, Factory.attributes_for(:distillery)
+        post :create, :distillery => Factory.attributes_for(:distillery)
       end
       should_assign_to :distillery
       should_redirect_to("the distillery details page") {distillery_path(assigns(:distillery))}
@@ -38,7 +38,7 @@ class DistilleriesControllerTest < ActionController::TestCase
     context "with invaild attributes" do
       setup do
         Distillery.any_instance.stubs(:save).returns(false)
-        post :create, Factory.attributes_for(:distillery)
+        post :create, :distillery => Factory.attributes_for(:distillery)
       end
       should_assign_to :distillery
       should_respond_with :success

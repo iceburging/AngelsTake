@@ -28,7 +28,7 @@ class ExpressionsControllerTest < ActionController::TestCase
   context "on POST to :create" do
     context "with vaild attributes" do
       setup do
-        post :create, Factory.attributes_for(:expression)
+        post :create, :expression => Factory.attributes_for(:expression)
       end
       should_assign_to :expression
       should_redirect_to("the expression details page") {expression_path(assigns(:expression))}
@@ -38,7 +38,7 @@ class ExpressionsControllerTest < ActionController::TestCase
     context "with invaild attributes" do
       setup do
         Expression.any_instance.stubs(:save).returns(false)
-        post :create, Factory.attributes_for(:expression)
+        post :create, :expression => Factory.attributes_for(:expression)
       end
       should_assign_to :expression
       should_respond_with :success

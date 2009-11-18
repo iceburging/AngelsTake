@@ -28,7 +28,7 @@ class ScoresControllerTest < ActionController::TestCase
   context "on POST to :create" do
     context "with vaild attributes" do
       setup do
-        post :create, Factory.attributes_for(:score)
+        post :create, :score => Factory.attributes_for(:score)
       end
       should_assign_to :score
       should_redirect_to("the score details page") {score_path(assigns(:score))}
@@ -38,7 +38,7 @@ class ScoresControllerTest < ActionController::TestCase
     context "with invaild attributes" do
       setup do
         Score.any_instance.stubs(:save).returns(false)
-        post :create, Factory.attributes_for(:score)
+        post :create, :score => Factory.attributes_for(:score)
       end
       should_assign_to :score
       should_respond_with :success

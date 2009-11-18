@@ -1,8 +1,12 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :password
+  attr_accessible :name, :password, :email
   attr_accessor :password
 
-  validates_presence_of :name
+  has_many :scores
+
+  validates_presence_of :name, :email
+  validates_uniqueness_of :email
+  validate :password_not_blank
 
   def password
     @password
@@ -13,6 +17,10 @@ class User < ActiveRecord::Base
   end
 
 private
+
+  def password_not_blank
+    errors.add_to_base("Password not present") if hashword.blank?
+  end
 
   def encrypt_password(password,salt)
     Digest::SHA1.hexdigest(password + 'AngelsTake' + salt)
