@@ -20,6 +20,20 @@ class UserTest < Test::Unit::TestCase
       assert_equal Digest::SHA1.hexdigest('new_password' + 'AngelsTake' + @user.salt), @user.hashword
     end
     should_validate_uniqueness_of :email
+    context "with some scores" do
+      setup do
+        4.times {|n| @user.scores << Factory.build(:score,:user => nil,:value => n*9)} #  => 0 9 18 27
+      end
+      should "return a high_score" do
+        assert_equal @user.high_score, 27
+      end
+      should "return a low_score" do
+        assert_equal @user.low_score, 0
+      end
+      should "return an average_score" do
+        assert_equal @user.average_score, 13.5
+      end
+    end
   end
 end
 
