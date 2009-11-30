@@ -16,16 +16,20 @@ class User < ActiveRecord::Base
     self.hashword = encrypt_password(value,generate_salt)
   end
 
-  def high_score
-    scores.map {|s| s.value}.max
-  end
+  #def high_score
+  #  scores.map {|s| s.value}.max
+  #end
 
-  def low_score
-    scores.map {|s| s.value}.min
-  end
+  #def low_score
+  #  scores.map {|s| s.value}.min
+  #end
 
-  def average_score
-     (scores.reduce(0) {|sum,score| sum + score.value}.to_f / scores.length).round(1)
+  #def average_score
+  #  (scores.reduce(0) {|sum,score| sum + score.value}.to_f / scores.length).round(1)
+  #end
+
+  def ranked_scores
+    scores.sort {|s1,s2| s1.value <=> s2.value}
   end
 
 private

@@ -18,6 +18,15 @@ class ScoreTest < ActiveSupport::TestCase
     should "return an expression" do
       assert_instance_of Expression, @score.expression
     end
+    context "that has been created" do
+      setup do
+        @score = Factory.create(:score)
+      end
+      subject{@score}
+      should "return a weight" do
+        assert Fixnum, @score.weight
+      end
+    end
   end
 end
 

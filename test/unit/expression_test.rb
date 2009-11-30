@@ -15,6 +15,17 @@ class ExpressionTest < ActiveSupport::TestCase
     should "return a distillery" do
       assert_instance_of Distillery, @expression.distillery
     end
+    should "return a weight" do
+      assert_instance_of Fixnum, @expression.weight
+    end
+    context "that has been created" do
+      setup do
+        @expression = Factory.create(:expression)
+      end
+      should "return a rank" do
+        assert_instance_of Fixnum, @expression.rank
+      end
+    end
   end
 end
 
