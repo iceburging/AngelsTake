@@ -7,7 +7,6 @@ config.gem "cucumber", :lib => false, :version => ">= 0.4.0"
 config.gem "webrat", :lib => false, :version => ">= 0.5.3"
 config.gem "nokogiri", :lib => false, :version => ">= 1.3.3"
 config.gem "ZenTest", :lib => false, :version => ">= 4.1.4"
-config.gem "relevance-rcov", :lib => false, :version => ">= 0.9.2.1"
 config.gem "mocha", :lib => false, :version => ">= 0.9.8"
 
 # The test environment is used exclusively to run your application's
